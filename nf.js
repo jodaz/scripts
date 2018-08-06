@@ -1,30 +1,29 @@
-var limit = 0;
-let total_days = 0;
-let isMonthly = false;
-
+const limit = process.argv[3];
 const datePrompt = process.argv[2];
+let totalDays = 0;
+let passDays = 0;
+let isMonthly = false;
+const options  = {weekday: 'short', year: 'numeric', month: 'long', day: 'numeric'};
 
 Date.prototype.addDays = function(days) {
     var date = new Date(datePrompt);
     date.setDate(date.getDate() + days);
-    return date;
+    return date.toLocaleDateString('en-US', options);
 }
 
 var date = new Date();
 
-while (!isMonthly) {
-    total_days += limit;
-    console.log("Reboot " + date.addDays(total_days) + ". Days since last reboot: " + limit);
 
-    if (limit % 10 == 0 && limit != 0) {
-        limit += 3;
+while (passDays <= limit) {
+    totalDays += passDays;
+
+    console.log("Reboot on " + date.addDays(totalDays) + ". Days since last reboot: " + passDays);
+
+    if (passDays % 10 == 0 && passDays != 0) {
+        passDays += passDays / 5;
     } else {
-        limit += 1;
-    }
-
-    if (limit >= 30) {
-        isMonthly = true;
+        passDays += 1;
     }
 }
 
-console.log("Total days since start of recovery: %s", (total_days));
+console.log("Total days since start of recovery: %s", (totalDays));
