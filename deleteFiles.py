@@ -11,14 +11,14 @@
 
 import os
 import re
+from os.path import join
 
 dir_path = input('Directory: ')
 directory = os.listdir(dir_path)
 
 pattern = input('Regex pattern: ')
 regex = re.compile(r'%s'%pattern)
-files = [('%s\\%s' % 
-            (dir_path, file)) for file in directory if regex.search(file)]
+files = [join(dir_path, file) for file in directory if regex.search(file)]
 
 def delete_files(file_paths):
     for file in file_paths:
