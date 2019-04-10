@@ -1,0 +1,1 @@
+@py.exe C:\Users\jesuodz\code\scripts\backUpTracks.py %*
