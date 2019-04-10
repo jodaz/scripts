@@ -1,9 +1,9 @@
 #! python3
-# backupMusicList.py - create a data backup from a music tracks directory.
+# backUpTracks.py - create a data backup from a music tracks directory.
 
 # TODO: List all tracks in directory and subdirectories.
 
-# TODO: Save all names in a .json file.
+# TODO: Save all names in a .json file in Documents.
 
 """ IDEAS:
     -   Update records.
