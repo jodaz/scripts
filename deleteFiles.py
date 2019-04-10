@@ -1,9 +1,16 @@
 #!  python3
-# deleteFiles.py - Delete all files matched against a regex pattern
+# deleteFiles.py - Delete all files matched against a regex pattern.
 
 # TODO: Add Linux support.
 
-import os, re, sys
+# TODO: Search in sub-directories.
+
+# TODO: Show all files or just a sample.
+
+# TODO: Raise exceptions.
+
+import os
+import re
 
 dir_path = input('Directory: ')
 directory = os.listdir(dir_path)
@@ -20,12 +27,12 @@ def delete_files(file_paths):
 
 if len(files) == 0:
     print("No files found.")
+else:
+    print('-------------- File Samples --------------')
+    for file in files[:10]:
+        print(file)
 
-print('-------------- File Samples --------------')
-for file in files[:10]:
-    print(file)
-
-confirm = input('Do you want to delete these files? (Y/N): ')
-if confirm.lower() == 'y': delete_files(files)
+    confirm = input('Do you want to delete these files? (Y/N): ')
+    if confirm.lower() == 'y': delete_files(files)
 
 input("Press ENTER to quit.")
