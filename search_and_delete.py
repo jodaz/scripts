@@ -31,4 +31,4 @@ for f in listdir( PATH ):
         if user == "n":
             print( "Save", file )
 
-print( "\nSuccefull operation!" )
+print( "\nSuccessful operation!" )
