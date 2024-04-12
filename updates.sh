@@ -7,4 +7,4 @@ sudo apt update
 sudo apt upgrade -y
 
 # Update Flatpak apps
-flatpak update
+flatpak update --non-interactive
